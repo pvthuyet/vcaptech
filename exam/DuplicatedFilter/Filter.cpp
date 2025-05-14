@@ -27,7 +27,7 @@ void Filter::Dump(const std::vector<WaterPressurePoints>& points) const
 	std::ofstream ofs(mOutputFile);
 
 	for (const auto& p : points) {
-		auto wp = roundTo3DecimalPlaces(p.water_pressure);
+		auto wp = roundToDecimal(p.water_pressure);
 		ofs << p.x << " " << p.y << " " << wp << std::endl;
 	}
 }

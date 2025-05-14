@@ -8,8 +8,9 @@ inline bool areApproximatelyEqual(double a, double b) {
 	return std::fabs(a - b) < EPSILON;
 }
 
-inline double roundTo3DecimalPlaces(double value) {
-	return std::round(value * 1000.0) / 1000.0;
+inline double roundToDecimal(double value, int numberDecimal = 3) {
+	double factor = std::pow(10, numberDecimal);
+	return std::round(value * factor) / factor;
 }
 
 struct WaterPressurePoints {
