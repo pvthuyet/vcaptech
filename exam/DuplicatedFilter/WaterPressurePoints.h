@@ -8,7 +8,7 @@ inline bool areApproximatelyEqual(double a, double b) {
 }
 
 inline double roundToDecimal(double value, int numberDecimal = 3) {
-	double factor = std::pow(10, numberDecimal);
+	const double factor = std::pow(10, numberDecimal);
 	return std::round(value * factor) / factor;
 }
 
