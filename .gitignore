@@ -1,5 +1,6 @@
 .vs/
 *.user
+x64/
 
 # Prerequisites
 *.d

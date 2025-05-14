@@ -1,11 +1,21 @@
 // DuplicatedFilter.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
-#include <iostream>
+#include "Filter.h"
+#include <vector>
 
 int main()
 {
-    std::cout << "Hello World!\n";
+	std::vector<WaterPressurePoints> points = {
+		{0, 0, 0},
+		{0, 0, 15},
+		{1e-19, 0, 10},
+		{0.5, 0, 25.123},
+		{0.1, 10, 25}
+	};
+
+	Filter filter;
+	filter.WriteWaterPressure(points);
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
