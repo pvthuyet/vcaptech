@@ -24,7 +24,7 @@ void Filter::WriteWaterPressure(const std::vector<WaterPressurePoints>& points)
 
 void Filter::Dump(const std::vector<WaterPressurePoints>& points) const
 {
-	std::ofstream ofs("WaterPressure.txt");
+	std::ofstream ofs(mOutputFile);
 
 	for (const auto& p : points) {
 		auto wp = roundTo3DecimalPlaces(p.water_pressure);

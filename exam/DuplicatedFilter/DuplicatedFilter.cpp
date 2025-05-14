@@ -3,6 +3,7 @@
 
 #include "Filter.h"
 #include <vector>
+#include <iostream>
 
 int main()
 {
@@ -14,8 +15,13 @@ int main()
 		{0.1, 10, 25}
 	};
 
-	Filter filter;
+	std::string filename = "WaterPressure.txt";
+
+	Filter filter(filename);
 	filter.WriteWaterPressure(points);
+
+	std::cout << "The output file: " << filename << std::endl;
+	return 0;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
