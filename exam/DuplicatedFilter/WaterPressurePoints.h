@@ -1,11 +1,10 @@
 #pragma once
 
 #include <cmath>
-
-constexpr const double EPSILON = 1e-9;
+#include <limits>
 
 inline bool areApproximatelyEqual(double a, double b) {
-	return std::fabs(a - b) < EPSILON;
+	return std::fabs(a - b) < std::numeric_limits<double>::epsilon();
 }
 
 inline double roundToDecimal(double value, int numberDecimal = 3) {
