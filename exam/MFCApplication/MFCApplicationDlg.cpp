@@ -59,12 +59,19 @@ CMFCApplicationDlg::CMFCApplicationDlg(CWnd* pParent /*=nullptr*/)
 void CMFCApplicationDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
+	DDX_Control(pDX, IDC_BUTTON1, m_button1);
+	DDX_Control(pDX, IDC_BUTTON2, m_button2);
+	DDX_Control(pDX, IDC_LABEL_1, m_label1);
+	DDX_Control(pDX, IDC_LABEL_2, m_label2);
 }
 
 BEGIN_MESSAGE_MAP(CMFCApplicationDlg, CDialogEx)
 	ON_WM_SYSCOMMAND()
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
+	ON_BN_CLICKED(IDC_BUTTON1, &CMFCApplicationDlg::OnBnClickedButton1)
+	ON_BN_CLICKED(IDC_BUTTON2, &CMFCApplicationDlg::OnBnClickedButton2)
+	ON_WM_SIZE()
 END_MESSAGE_MAP()
 
 
@@ -100,6 +107,11 @@ BOOL CMFCApplicationDlg::OnInitDialog()
 	SetIcon(m_hIcon, FALSE);		// Set small icon
 
 	// TODO: Add extra initialization here
+	CRect rect;
+	GetClientRect(&rect);
+	if (rect.Width() > 0 && rect.Height() > 0) {
+		ArrangeLayout(rect.Width(), rect.Height());
+	}
 
 	return TRUE;  // return TRUE  unless you set the focus to a control
 }
@@ -153,3 +165,41 @@ HCURSOR CMFCApplicationDlg::OnQueryDragIcon()
 	return static_cast<HCURSOR>(m_hIcon);
 }
 
+
+void CMFCApplicationDlg::OnBnClickedButton1()
+{
+	AfxMessageBox(_T("Button 1 clicked"));
+}
+
+
+void CMFCApplicationDlg::OnBnClickedButton2()
+{
+	AfxMessageBox(_T("Button 2 clicked"));
+	// TODO: Add your control notification handler code here
+}
+
+
+void CMFCApplicationDlg::OnSize(UINT nType, int cx, int cy)
+{
+	CDialogEx::OnSize(nType, cx, cy);
+	ArrangeLayout(cx, cy);
+}
+
+void CMFCApplicationDlg::ArrangeLayout(int cx, int cy)
+{
+	if (m_button1.GetSafeHwnd() == nullptr)
+		return; // Controls not yet created
+
+	const int padding = 10;
+	const int rowHeight = 30;
+	const int controlWidth = (cx - (3 * padding)) / 2;
+	const int labelHeight = cy - rowHeight - (padding * 3);
+
+	// Row 1: Buttons
+	m_button1.MoveWindow(padding, padding, controlWidth, rowHeight);
+	m_button2.MoveWindow(padding * 2 + controlWidth, padding, controlWidth, rowHeight);
+
+	// Row 2: Labels
+	m_label1.MoveWindow(padding, padding * 2 + rowHeight, controlWidth, labelHeight);
+	m_label2.MoveWindow(padding * 2 + controlWidth, padding * 2 + rowHeight, controlWidth, labelHeight);
+}

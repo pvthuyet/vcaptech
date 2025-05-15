@@ -31,4 +31,15 @@ protected:
 	afx_msg void OnPaint();
 	afx_msg HCURSOR OnQueryDragIcon();
 	DECLARE_MESSAGE_MAP()
+public:
+	afx_msg void OnBnClickedButton1();
+	afx_msg void OnBnClickedButton2();
+	CButton m_button1;
+	CButton m_button2;
+	CStatic m_label1;
+	CStatic m_label2;
+	afx_msg void OnSize(UINT nType, int cx, int cy);
+
+private:
+	void ArrangeLayout(int cx, int cy);
 };
