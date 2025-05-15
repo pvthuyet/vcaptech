@@ -7,6 +7,7 @@
 #include "MFCApplication.h"
 #include "MFCApplicationDlg.h"
 #include "afxdialogex.h"
+#include "CSettingDialog.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -52,6 +53,8 @@ END_MESSAGE_MAP()
 
 CMFCApplicationDlg::CMFCApplicationDlg(CWnd* pParent /*=nullptr*/)
 	: CDialogEx(IDD_MFCAPPLICATION_DIALOG, pParent)
+	, m_label1Str(_T(""))
+	, m_label2Str(_T(""))
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
@@ -61,8 +64,10 @@ void CMFCApplicationDlg::DoDataExchange(CDataExchange* pDX)
 	CDialogEx::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_BUTTON1, m_button1);
 	DDX_Control(pDX, IDC_BUTTON2, m_button2);
-	DDX_Control(pDX, IDC_LABEL_1, m_label1);
-	DDX_Control(pDX, IDC_LABEL_2, m_label2);
+	DDX_Control(pDX, IDC_LABEL_1, m_label1Ctrl);
+	DDX_Control(pDX, IDC_LABEL_2, m_label2Ctrl);
+	DDX_Text(pDX, IDC_LABEL_1, m_label1Str);
+	DDX_Text(pDX, IDC_LABEL_2, m_label2Str);
 }
 
 BEGIN_MESSAGE_MAP(CMFCApplicationDlg, CDialogEx)
@@ -168,14 +173,15 @@ HCURSOR CMFCApplicationDlg::OnQueryDragIcon()
 
 void CMFCApplicationDlg::OnBnClickedButton1()
 {
-	AfxMessageBox(_T("Button 1 clicked"));
+	CSettingDialog dlg;
+	dlg.DoModal();
 }
 
 
 void CMFCApplicationDlg::OnBnClickedButton2()
 {
-	AfxMessageBox(_T("Button 2 clicked"));
-	// TODO: Add your control notification handler code here
+	CSettingDialog dlg;
+	dlg.DoModal();
 }
 
 
@@ -200,6 +206,6 @@ void CMFCApplicationDlg::ArrangeLayout(int cx, int cy)
 	m_button2.MoveWindow(padding * 2 + controlWidth, padding, controlWidth, rowHeight);
 
 	// Row 2: Labels
-	m_label1.MoveWindow(padding, padding * 2 + rowHeight, controlWidth, labelHeight);
-	m_label2.MoveWindow(padding * 2 + controlWidth, padding * 2 + rowHeight, controlWidth, labelHeight);
+	m_label1Ctrl.MoveWindow(padding, padding * 2 + rowHeight, controlWidth, labelHeight);
+	m_label2Ctrl.MoveWindow(padding * 2 + controlWidth, padding * 2 + rowHeight, controlWidth, labelHeight);
 }
