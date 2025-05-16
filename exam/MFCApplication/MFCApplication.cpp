@@ -6,6 +6,7 @@
 #include "framework.h"
 #include "MFCApplication.h"
 #include "MFCApplicationDlg.h"
+#include "CModel.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -70,6 +71,9 @@ BOOL CMFCApplicationApp::InitInstance()
 	// TODO: You should modify this string to be something appropriate
 	// such as the name of your company or organization
 	SetRegistryKey(_T("Local AppWizard-Generated Applications"));
+
+	CModel model("data.json");
+	model.load();
 
 	CMFCApplicationDlg dlg;
 	m_pMainWnd = &dlg;

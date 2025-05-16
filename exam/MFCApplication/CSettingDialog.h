@@ -9,7 +9,7 @@ class CSettingDialog : public CDialogEx
 	DECLARE_DYNAMIC(CSettingDialog)
 
 public:
-	CSettingDialog(CWnd* pParent = nullptr);   // standard constructor
+	CSettingDialog(const CString& labelText, CWnd* pParent = nullptr);   // standard constructor
 	virtual ~CSettingDialog();
 
 // Dialog Data
@@ -30,5 +30,6 @@ private:
 public:
 	virtual BOOL OnInitDialog();
 	CString m_labelStr;
-	afx_msg void OnCbnSelchangeSettingCmb();
+
+	int getSelectedIndex() const { return m_comboxCtrl.GetCurSel(); }
 };

@@ -11,9 +11,9 @@
 
 IMPLEMENT_DYNAMIC(CSettingDialog, CDialogEx)
 
-CSettingDialog::CSettingDialog(CWnd* pParent /*=nullptr*/)
+CSettingDialog::CSettingDialog(const CString& labelText, CWnd* pParent /*=nullptr*/)
 	: CDialogEx(IDD_SETTING_DIALOG, pParent)
-	, m_labelStr(_T(""))
+	, m_labelStr(labelText)
 {
 
 }
@@ -32,7 +32,6 @@ void CSettingDialog::DoDataExchange(CDataExchange* pDX)
 
 
 BEGIN_MESSAGE_MAP(CSettingDialog, CDialogEx)
-	ON_CBN_SELCHANGE(IDC_SETTING_CMB, &CSettingDialog::OnCbnSelchangeSettingCmb)
 END_MESSAGE_MAP()
 
 
@@ -60,21 +59,11 @@ void CSettingDialog::ArrangeLayout(int cx, int cy)
 		return; // Controls not yet created
 
 	const int padding = 10;
-	const int labelHeight = 35;
+	const int labelHeight = 30;
 	const int w = (cx - (2 * padding));
 	const int cmbHeight = cy - labelHeight - (padding * 2);
 
 	m_labelCtrl.MoveWindow(padding, padding, w, labelHeight);
-	m_comboxCtrl.MoveWindow(padding, padding * 2 + labelHeight, w, cmbHeight);
+	m_comboxCtrl.MoveWindow(padding, padding + labelHeight, w, cmbHeight);
 }
-void CSettingDialog::OnCbnSelchangeSettingCmb()
-{
-	int index = m_comboxCtrl.GetCurSel();  // Get the selected index
-	CString selectedText;
 
-	if (index != CB_ERR) {
-		m_comboxCtrl.GetLBText(index, selectedText);  // Get the text at that index
-        m_labelStr = selectedText;  // Set the label string to the selected text
-        UpdateData(FALSE);  // Update the label control with the selected text
-	}
-}
