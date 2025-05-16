@@ -173,7 +173,7 @@ HCURSOR CMFCApplicationDlg::OnQueryDragIcon()
 
 void CMFCApplicationDlg::OnBnClickedButton1()
 {
-	CSettingDialog dlg(_T("Ground Water Method:"));
+	CSettingDialog dlg(_T("Ground Water Method:"), 1);
 	dlg.DoModal();
 	//m_label1Str = dlg.getSelectedText();
 	UpdateData(FALSE);
@@ -182,7 +182,7 @@ void CMFCApplicationDlg::OnBnClickedButton1()
 
 void CMFCApplicationDlg::OnBnClickedButton2()
 {
-	CSettingDialog dlg(_T("Thermal Method:"));
+	CSettingDialog dlg(_T("Thermal Method:"), 2);
 	dlg.DoModal();
 	//m_label2Str = dlg.getSelectedText();
 	UpdateData(FALSE);

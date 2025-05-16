@@ -11,9 +11,11 @@
 
 IMPLEMENT_DYNAMIC(CSettingDialog, CDialogEx)
 
-CSettingDialog::CSettingDialog(const CString& labelText, CWnd* pParent /*=nullptr*/)
+CSettingDialog::CSettingDialog(const CString& labelText, int selectedIndex, const CStringArray& items, CWnd* pParent /*=nullptr*/)
 	: CDialogEx(IDD_SETTING_DIALOG, pParent)
 	, m_labelStr(labelText)
+	, m_selectedIndex(selectedIndex)
+	, m_items(items)
 {
 
 }
@@ -28,6 +30,7 @@ void CSettingDialog::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_SETTING_LABEL, m_labelCtrl);
 	DDX_Control(pDX, IDC_SETTING_CMB, m_comboxCtrl);
 	DDX_Text(pDX, IDC_SETTING_LABEL, m_labelStr);
+	DDX_CBIndex(pDX, IDC_SETTING_CMB, m_selectedIndex);
 }
 
 

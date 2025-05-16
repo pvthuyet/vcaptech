@@ -13,12 +13,21 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="model">
+      <UniqueIdentifier>{bfed2abf-3d8b-435e-8bdb-ab6acd30890d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="view">
+      <UniqueIdentifier>{93106d76-3ef6-4185-8ed5-187c455a6dcf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="controller">
+      <UniqueIdentifier>{5c4d06b7-9114-4202-bd8a-ff8dfec0f915}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="third-parties">
+      <UniqueIdentifier>{617aab13-e44e-4a14-bea7-1ad9fe431a14}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MFCApplication.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MFCApplicationDlg.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="framework.h">
@@ -33,34 +42,37 @@
     <ClInclude Include="pch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="CModel.h">
+      <Filter>model</Filter>
+    </ClInclude>
+    <ClInclude Include="MFCApplicationDlg.h">
+      <Filter>view</Filter>
+    </ClInclude>
     <ClInclude Include="CSettingDialog.h">
-      <Filter>Header Files</Filter>
+      <Filter>view</Filter>
     </ClInclude>
     <ClInclude Include="..\nlohmann\json.hpp">
-      <Filter>Header Files</Filter>
+      <Filter>third-parties</Filter>
     </ClInclude>
     <ClInclude Include="..\nlohmann\json_fwd.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CModel.h">
-      <Filter>Header Files</Filter>
+      <Filter>third-parties</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MFCApplication.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MFCApplicationDlg.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="pch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CSettingDialog.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="CModel.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>model</Filter>
+    </ClCompile>
+    <ClCompile Include="CSettingDialog.cpp">
+      <Filter>view</Filter>
+    </ClCompile>
+    <ClCompile Include="MFCApplicationDlg.cpp">
+      <Filter>view</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
