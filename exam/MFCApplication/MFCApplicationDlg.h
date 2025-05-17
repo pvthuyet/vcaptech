@@ -18,6 +18,7 @@ private:
 	CString m_label1Str;
 	CString m_label2Str;
 	CModel m_model;
+	friend class CController;
     CController m_controller;
 
 // Construction

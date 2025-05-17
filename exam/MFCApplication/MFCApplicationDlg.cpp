@@ -181,10 +181,7 @@ void CMFCApplicationDlg::OnBnClickedButton1()
 {
 	CSettingDialog dlg(_T("Ground Water Method:"), m_model.getGroundWaterMethodSelectedIndex(), m_model.getGroundWaterMethods());
 	dlg.DoModal();
-    auto selectedIndex = dlg.getSelectedIndex();
-    m_model.setGroundWaterMethodSelectedIndex(selectedIndex);
-    m_label1Str = m_model.getGroundWaterMethodSelected().c_str();
-	UpdateData(FALSE);
+	m_controller.updateGroundWaterMethod(dlg.getSelectedIndex());
 }
 
 
@@ -192,10 +189,7 @@ void CMFCApplicationDlg::OnBnClickedButton2()
 {
 	CSettingDialog dlg(_T("Thermal Method:"), m_model.getThermalMethodSelectedIndex(), m_model.getThermalMethods());
 	dlg.DoModal();
-	auto selectedIndex = dlg.getSelectedIndex();
-    m_model.setThermalMethodSelectedIndex(selectedIndex);
-    m_label2Str = m_model.getThermalMethodSelected().c_str();
-	UpdateData(FALSE);
+	m_controller.updateThermalMethod(dlg.getSelectedIndex());
 }
 
 
