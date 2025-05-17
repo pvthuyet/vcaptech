@@ -52,11 +52,12 @@ END_MESSAGE_MAP()
 
 
 
-CMFCApplicationDlg::CMFCApplicationDlg(CModel& model, CWnd* pParent /*=nullptr*/)
+CMFCApplicationDlg::CMFCApplicationDlg(CWnd* pParent /*=nullptr*/)
 	: CDialogEx(IDD_MFCAPPLICATION_DIALOG, pParent)
-    , m_model(model)
 	, m_label1Str(_T(""))
 	, m_label2Str(_T(""))
+    , m_model("data.json")
+	, m_controller(m_model, *this)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }

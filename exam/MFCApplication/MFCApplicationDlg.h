@@ -4,23 +4,25 @@
 
 #pragma once
 
-class CModel;
+#include "cmodel.h"
+#include "ccontroller.h"
 
 // CMFCApplicationDlg dialog
 class CMFCApplicationDlg : public CDialogEx
 {
 private:
-    CModel& m_model; // Reference to the model
 	CButton m_button1;
 	CButton m_button2;
 	CStatic m_label1Ctrl;
 	CStatic m_label2Ctrl;
 	CString m_label1Str;
 	CString m_label2Str;
+	CModel m_model;
+    CController m_controller;
 
 // Construction
 public:
-	CMFCApplicationDlg(CModel& model, CWnd* pParent = nullptr);	// standard constructor
+	CMFCApplicationDlg(CWnd* pParent = nullptr);	// standard constructor
 
 // Dialog Data
 #ifdef AFX_DESIGN_TIME

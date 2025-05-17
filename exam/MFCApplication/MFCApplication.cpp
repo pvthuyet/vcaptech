@@ -6,7 +6,6 @@
 #include "framework.h"
 #include "MFCApplication.h"
 #include "MFCApplicationDlg.h"
-#include "CModel.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -72,8 +71,7 @@ BOOL CMFCApplicationApp::InitInstance()
 	// such as the name of your company or organization
 	SetRegistryKey(_T("Local AppWizard-Generated Applications"));
 
-	CModel model("data.json");
-    CMFCApplicationDlg dlg(model);
+    CMFCApplicationDlg dlg;
 	m_pMainWnd = &dlg;
 	INT_PTR nResponse = dlg.DoModal();
 	if (nResponse == IDOK)

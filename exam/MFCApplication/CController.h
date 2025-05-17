@@ -7,6 +7,7 @@ class CController final
 {
 public:
     CController(CModel& model, CMFCApplicationDlg& view);
+    void updateGroundWaterMethod(int selectedIndex);
 
 private:
     CModel& m_model;
