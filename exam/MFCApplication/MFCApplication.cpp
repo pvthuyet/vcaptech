@@ -73,9 +73,7 @@ BOOL CMFCApplicationApp::InitInstance()
 	SetRegistryKey(_T("Local AppWizard-Generated Applications"));
 
 	CModel model("data.json");
-	model.load();
-
-	CMFCApplicationDlg dlg;
+    CMFCApplicationDlg dlg(model);
 	m_pMainWnd = &dlg;
 	INT_PTR nResponse = dlg.DoModal();
 	if (nResponse == IDOK)

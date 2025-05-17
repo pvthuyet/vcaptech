@@ -1,6 +1,7 @@
 #pragma once
 #include "afxdialogex.h"
 #include <vector>
+#include <string>
 
 
 // CSettingDialog dialog
@@ -10,7 +11,7 @@ class CSettingDialog : public CDialogEx
 	DECLARE_DYNAMIC(CSettingDialog)
 
 public:
-	CSettingDialog(const CString& labelText, int selectedIndex, const std::vector<CString>& items, CWnd* pParent = nullptr);   // standard constructor
+	CSettingDialog(const CString& labelText, int selectedIndex, const std::vector<std::string>& items, CWnd* pParent = nullptr);   // standard constructor
 	virtual ~CSettingDialog();
 
 // Dialog Data
@@ -35,5 +36,7 @@ public:
 	int getSelectedIndex() const { return m_selectedIndex; }
 private:
 	int m_selectedIndex;
-	std::vector<CString> m_comboBoxitems;
+	std::vector<std::string> m_comboBoxitems;
+public:
+	afx_msg void OnCbnSelchangeSettingCmb();
 };

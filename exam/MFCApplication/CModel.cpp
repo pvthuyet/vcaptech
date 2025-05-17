@@ -8,6 +8,7 @@ namespace fs = std::filesystem;
 CModel::CModel(const std::string& filePath)
 	: m_filePath(filePath)
 {
+    load();
 }
 
 CModel::~CModel()

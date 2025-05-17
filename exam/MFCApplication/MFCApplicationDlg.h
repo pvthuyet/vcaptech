@@ -4,13 +4,23 @@
 
 #pragma once
 
+class CModel;
 
 // CMFCApplicationDlg dialog
 class CMFCApplicationDlg : public CDialogEx
 {
+private:
+    CModel& m_model; // Reference to the model
+	CButton m_button1;
+	CButton m_button2;
+	CStatic m_label1Ctrl;
+	CStatic m_label2Ctrl;
+	CString m_label1Str;
+	CString m_label2Str;
+
 // Construction
 public:
-	CMFCApplicationDlg(CWnd* pParent = nullptr);	// standard constructor
+	CMFCApplicationDlg(CModel& model, CWnd* pParent = nullptr);	// standard constructor
 
 // Dialog Data
 #ifdef AFX_DESIGN_TIME
@@ -34,15 +44,8 @@ protected:
 public:
 	afx_msg void OnBnClickedButton1();
 	afx_msg void OnBnClickedButton2();
-	CButton m_button1;
-	CButton m_button2;
-	CStatic m_label1Ctrl;
-	CStatic m_label2Ctrl;
 	afx_msg void OnSize(UINT nType, int cx, int cy);
 
 private:
 	void ArrangeLayout(int cx, int cy);
-public:
-	CString m_label1Str;
-	CString m_label2Str;
 };

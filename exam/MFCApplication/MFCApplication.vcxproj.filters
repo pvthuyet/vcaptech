@@ -57,6 +57,9 @@
     <ClInclude Include="..\nlohmann\json_fwd.hpp">
       <Filter>third-parties</Filter>
     </ClInclude>
+    <ClInclude Include="CController.h">
+      <Filter>controller</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MFCApplication.cpp">
@@ -73,6 +76,9 @@
     </ClCompile>
     <ClCompile Include="MFCApplicationDlg.cpp">
       <Filter>view</Filter>
+    </ClCompile>
+    <ClCompile Include="CController.cpp">
+      <Filter>controller</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

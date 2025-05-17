@@ -193,6 +193,7 @@
   <ItemGroup>
     <ClInclude Include="..\nlohmann\json.hpp" />
     <ClInclude Include="..\nlohmann\json_fwd.hpp" />
+    <ClInclude Include="CController.h" />
     <ClInclude Include="CModel.h" />
     <ClInclude Include="CSettingDialog.h" />
     <ClInclude Include="framework.h" />
@@ -203,6 +204,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CController.cpp" />
     <ClCompile Include="CModel.cpp" />
     <ClCompile Include="CSettingDialog.cpp" />
     <ClCompile Include="MFCApplication.cpp" />

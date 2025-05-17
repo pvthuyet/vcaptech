@@ -8,6 +8,7 @@
 #include "MFCApplicationDlg.h"
 #include "afxdialogex.h"
 #include "CSettingDialog.h"
+#include "CModel.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -51,8 +52,9 @@ END_MESSAGE_MAP()
 
 
 
-CMFCApplicationDlg::CMFCApplicationDlg(CWnd* pParent /*=nullptr*/)
+CMFCApplicationDlg::CMFCApplicationDlg(CModel& model, CWnd* pParent /*=nullptr*/)
 	: CDialogEx(IDD_MFCAPPLICATION_DIALOG, pParent)
+    , m_model(model)
 	, m_label1Str(_T(""))
 	, m_label2Str(_T(""))
 {
@@ -112,6 +114,9 @@ BOOL CMFCApplicationDlg::OnInitDialog()
 	SetIcon(m_hIcon, FALSE);		// Set small icon
 
 	// TODO: Add extra initialization here
+    m_label1Str = m_model.getGroundWaterMethodSelected().c_str();
+    m_label2Str = m_model.getThermalMethodSelected().c_str();
+    UpdateData(FALSE);
 	CRect rect;
 	GetClientRect(&rect);
 	if (rect.Width() > 0 && rect.Height() > 0) {
@@ -173,18 +178,22 @@ HCURSOR CMFCApplicationDlg::OnQueryDragIcon()
 
 void CMFCApplicationDlg::OnBnClickedButton1()
 {
-	CSettingDialog dlg(_T("Ground Water Method:"), 1);
+	CSettingDialog dlg(_T("Ground Water Method:"), m_model.getGroundWaterMethodSelectedIndex(), m_model.getGroundWaterMethods());
 	dlg.DoModal();
-	//m_label1Str = dlg.getSelectedText();
+    auto selectedIndex = dlg.getSelectedIndex();
+    m_model.setGroundWaterMethodSelectedIndex(selectedIndex);
+    m_label1Str = m_model.getGroundWaterMethodSelected().c_str();
 	UpdateData(FALSE);
 }
 
 
 void CMFCApplicationDlg::OnBnClickedButton2()
 {
-	CSettingDialog dlg(_T("Thermal Method:"), 2);
+	CSettingDialog dlg(_T("Thermal Method:"), m_model.getThermalMethodSelectedIndex(), m_model.getThermalMethods());
 	dlg.DoModal();
-	//m_label2Str = dlg.getSelectedText();
+	auto selectedIndex = dlg.getSelectedIndex();
+    m_model.setThermalMethodSelectedIndex(selectedIndex);
+    m_label2Str = m_model.getThermalMethodSelected().c_str();
 	UpdateData(FALSE);
 }
 
