@@ -21,6 +21,8 @@ int main()
 	filter.WriteWaterPressure(points);
 
 	std::cout << "The output file: " << filename << std::endl;
+	std::cout << "Press Enter to stop the application..." << std::endl;
+	std::cin.get();  // Waits until Enter is pressed
 	return 0;
 }
 
