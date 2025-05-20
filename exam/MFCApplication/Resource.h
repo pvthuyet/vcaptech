@@ -8,13 +8,12 @@
 #define IDD_MFCAPPLICATION_DIALOG       102
 #define IDD_SETTING_DIALOG              103
 #define IDR_MAINFRAME                   128
-#define IDC_BUTTON1                     1004
-#define IDC_LABEL_2                     1005
-#define IDC_BUTTON2                     1006
-#define IDC_SETTING_LABEL               1006
-#define IDC_LABEL_1                     1007
-#define IDC_OPT_DLG_CMB                 1007
-#define IDC_SETTING_CMB                 1007
+#define IDC_MAIN_BUTTON1                1004
+#define IDC_MAIN_LABEL_1                1005
+#define IDC_MAIN_BUTTON2                1006
+#define IDC_MAIN_LABEL_2                1007
+#define IDC_SETTING_LABEL               1008
+#define IDC_SETTING_CMB                 1009
 
 // Next default values for new objects
 // 

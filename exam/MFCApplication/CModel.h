@@ -10,7 +10,7 @@ class CModel final
 {
 public:
 	CModel(const std::string& filePath);
-	~CModel();
+	virtual ~CModel();
 
     std::vector<std::string> getGroundWaterMethods() const { return m_groundWaterMethods; }
     int getGroundWaterMethodSelectedIndex() const { return m_gwmSelectedIndex; }
@@ -32,8 +32,8 @@ private:
 
 	std::string m_filePath;
 	std::vector<std::string> m_groundWaterMethods;
-	int m_gwmSelectedIndex = 0;
+	int m_gwmSelectedIndex;
 	std::vector<std::string> m_thermalMethods;
-	int m_thrSelectedIndex = 0;
+	int m_thrSelectedIndex;
 };
 

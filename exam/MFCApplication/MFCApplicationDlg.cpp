@@ -65,20 +65,20 @@ CMFCApplicationDlg::CMFCApplicationDlg(CWnd* pParent /*=nullptr*/)
 void CMFCApplicationDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
-	DDX_Control(pDX, IDC_BUTTON1, m_button1);
-	DDX_Control(pDX, IDC_BUTTON2, m_button2);
-	DDX_Control(pDX, IDC_LABEL_1, m_label1Ctrl);
-	DDX_Control(pDX, IDC_LABEL_2, m_label2Ctrl);
-	DDX_Text(pDX, IDC_LABEL_1, m_label1Str);
-	DDX_Text(pDX, IDC_LABEL_2, m_label2Str);
+	DDX_Control(pDX, IDC_MAIN_BUTTON1, m_button1);
+	DDX_Control(pDX, IDC_MAIN_BUTTON2, m_button2);
+	DDX_Control(pDX, IDC_MAIN_LABEL_1, m_label1Ctrl);
+	DDX_Control(pDX, IDC_MAIN_LABEL_2, m_label2Ctrl);
+	DDX_Text(pDX, IDC_MAIN_LABEL_1, m_label1Str);
+	DDX_Text(pDX, IDC_MAIN_LABEL_2, m_label2Str);
 }
 
 BEGIN_MESSAGE_MAP(CMFCApplicationDlg, CDialogEx)
 	ON_WM_SYSCOMMAND()
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
-	ON_BN_CLICKED(IDC_BUTTON1, &CMFCApplicationDlg::OnBnClickedButton1)
-	ON_BN_CLICKED(IDC_BUTTON2, &CMFCApplicationDlg::OnBnClickedButton2)
+	ON_BN_CLICKED(IDC_MAIN_BUTTON1, &CMFCApplicationDlg::OnBnClickedButton1)
+	ON_BN_CLICKED(IDC_MAIN_BUTTON2, &CMFCApplicationDlg::OnBnClickedButton2)
 	ON_WM_SIZE()
 END_MESSAGE_MAP()
 

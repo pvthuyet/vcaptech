@@ -7,6 +7,8 @@ namespace fs = std::filesystem;
 
 CModel::CModel(const std::string& filePath)
 	: m_filePath(filePath)
+	, m_gwmSelectedIndex(0)
+	, m_thrSelectedIndex(0)
 {
     load();
 }
