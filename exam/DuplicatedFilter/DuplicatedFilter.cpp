@@ -18,7 +18,7 @@ int main()
 	std::string filename = "WaterPressure.txt";
 
 	Filter filter(filename);
-	filter.WriteWaterPressure(points);
+	filter.WriteWaterPressure_improve(points);
 
 	std::cout << "The output file: " << filename << std::endl;
 	std::cout << "Press Enter to stop the application..." << std::endl;

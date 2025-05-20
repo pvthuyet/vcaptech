@@ -1,7 +1,7 @@
 #include "Filter.h"
-#include <iostream>
 #include <algorithm>
 #include <fstream>
+#include <unordered_set>
 
 void Filter::WriteWaterPressure(const std::vector<WaterPressurePoints>& points)
 {
@@ -22,12 +22,14 @@ void Filter::WriteWaterPressure(const std::vector<WaterPressurePoints>& points)
 	Dump(result);
 }
 
-void Filter::Dump(const std::vector<WaterPressurePoints>& points) const
+void Filter::WriteWaterPressure_improve(const std::vector<WaterPressurePoints>& points)
 {
-	std::ofstream ofs(mOutputFile);
+	std::unordered_set<WaterPressurePoints> result;
+	result.reserve(points.size());
 
 	for (const auto& p : points) {
-		auto wp = roundToDecimal(p.water_pressure);
-		ofs << p.x << " " << p.y << " " << wp << std::endl;
+		result.insert(p);
 	}
+
+	Dump(result);
 }
