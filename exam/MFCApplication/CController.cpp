@@ -10,6 +10,8 @@ CController::CController(ViewModel& model, CMFCApplicationDlg& view)
 {
 }
 
+CController::~CController() = default;
+
 void CController::updateGroundWaterMethod(int selectedIndex)
 {
     m_model.setGroundWaterMethodSelectedIndex(selectedIndex);

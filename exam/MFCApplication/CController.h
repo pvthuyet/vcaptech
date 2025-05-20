@@ -7,6 +7,8 @@ class CController final
 {
 public:
     CController(ViewModel& model, CMFCApplicationDlg& view);
+    virtual ~CController();
+
     void updateGroundWaterMethod(int selectedIndex);
     void updateThermalMethod(int selectedIndex);
 
