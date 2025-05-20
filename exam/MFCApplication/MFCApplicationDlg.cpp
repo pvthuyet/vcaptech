@@ -8,7 +8,7 @@
 #include "MFCApplicationDlg.h"
 #include "afxdialogex.h"
 #include "CSettingDialog.h"
-#include "CModel.h"
+#include "ViewModel.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW

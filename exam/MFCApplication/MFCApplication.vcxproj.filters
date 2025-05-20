@@ -42,7 +42,7 @@
     <ClInclude Include="pch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CModel.h">
+    <ClInclude Include="ViewModel.h">
       <Filter>model</Filter>
     </ClInclude>
     <ClInclude Include="MFCApplicationDlg.h">
@@ -68,7 +68,7 @@
     <ClCompile Include="pch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CModel.cpp">
+    <ClCompile Include="ViewModel.cpp">
       <Filter>model</Filter>
     </ClCompile>
     <ClCompile Include="CSettingDialog.cpp">

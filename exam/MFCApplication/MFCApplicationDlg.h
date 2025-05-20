@@ -4,8 +4,8 @@
 
 #pragma once
 
-#include "cmodel.h"
-#include "ccontroller.h"
+#include "ViewModel.h"
+#include "CController.h"
 
 // CMFCApplicationDlg dialog
 class CMFCApplicationDlg : public CDialogEx
@@ -17,7 +17,7 @@ private:
 	CStatic m_label2Ctrl;
 	CString m_label1Str;
 	CString m_label2Str;
-	CModel m_model;
+	ViewModel m_model;
 	friend class CController;
     CController m_controller;
 

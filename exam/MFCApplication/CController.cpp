@@ -1,10 +1,10 @@
 #include "pch.h"
 #include "CController.h"
 
-#include "CModel.h"
+#include "ViewModel.h"
 #include "MFCApplicationDlg.h"
 
-CController::CController(CModel& model, CMFCApplicationDlg& view)
+CController::CController(ViewModel& model, CMFCApplicationDlg& view)
     : m_model(model) 
     , m_view(view) 
 {

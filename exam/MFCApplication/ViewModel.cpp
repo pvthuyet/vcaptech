@@ -1,11 +1,11 @@
 #include "pch.h"
-#include "CModel.h"
+#include "ViewModel.h"
 #include <filesystem>
 #include <fstream>
 
 namespace fs = std::filesystem;
 
-CModel::CModel(const std::string& filePath)
+ViewModel::ViewModel(const std::string& filePath)
 	: m_filePath(filePath)
 	, m_gwmSelectedIndex(0)
 	, m_thrSelectedIndex(0)
@@ -13,12 +13,12 @@ CModel::CModel(const std::string& filePath)
     load();
 }
 
-CModel::~CModel()
+ViewModel::~ViewModel()
 {
 	save();
 }
 
-void CModel::load()
+void ViewModel::load()
 {
 	json js;
 	if (fs::exists(m_filePath)) {
@@ -39,7 +39,7 @@ void CModel::load()
 	loadFromJson(js["thermal_method"], m_thermalMethods, m_thrSelectedIndex);
 }
 
-void CModel::loadFromJson(json js, std::vector<std::string>& outVec, int& selectedIndex)
+void ViewModel::loadFromJson(json js, std::vector<std::string>& outVec, int& selectedIndex)
 {
 	selectedIndex = js["selected"].template get<int>();
 	auto data = js["data"];
@@ -51,7 +51,7 @@ void CModel::loadFromJson(json js, std::vector<std::string>& outVec, int& select
 	selectedIndex = std::min<int>(selectedIndex, outVec.size() - 1);
 }
 
-json CModel::convertToJson(const std::vector<std::string>& inVec, int selectedIndex)
+json ViewModel::convertToJson(const std::vector<std::string>& inVec, int selectedIndex)
 {
 	json js;
 	js["selected"] = selectedIndex;
@@ -59,7 +59,7 @@ json CModel::convertToJson(const std::vector<std::string>& inVec, int selectedIn
 	return js;
 }
 
-void CModel::save()
+void ViewModel::save()
 {
 	json js;
 	js["ground_water_method"] = convertToJson(m_groundWaterMethods, m_gwmSelectedIndex);

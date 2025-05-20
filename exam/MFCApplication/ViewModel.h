@@ -6,11 +6,11 @@
 
 using json = nlohmann::json;
 
-class CModel final
+class ViewModel final
 {
 public:
-	CModel(const std::string& filePath);
-	virtual ~CModel();
+	ViewModel(const std::string& filePath);
+	virtual ~ViewModel();
 
     std::vector<std::string> getGroundWaterMethods() const { return m_groundWaterMethods; }
     int getGroundWaterMethodSelectedIndex() const { return m_gwmSelectedIndex; }

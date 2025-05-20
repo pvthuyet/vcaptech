@@ -1,17 +1,17 @@
 #pragma once
 
-class CModel;
+class ViewModel;
 class CMFCApplicationDlg;
 
 class CController final
 {
 public:
-    CController(CModel& model, CMFCApplicationDlg& view);
+    CController(ViewModel& model, CMFCApplicationDlg& view);
     void updateGroundWaterMethod(int selectedIndex);
     void updateThermalMethod(int selectedIndex);
 
 private:
-    CModel& m_model;
+    ViewModel& m_model;
     CMFCApplicationDlg& m_view;
 };
 
